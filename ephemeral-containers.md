@@ -181,3 +181,5 @@ kubectl attach -ti nginx-dc76f9f48-tj5qq -c debugger
 The kubectl debug command will let you automatically create and attach to an ephemeral container:
 [link](https://github.com/kubernetes/kubernetes/issues/45922)
 
+Ephemeral Containers [link](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/)
+
