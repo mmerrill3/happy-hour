@@ -29,7 +29,10 @@ Then, update your cluster config to add the feature gate for ephemeral container
       EphemeralContainers: "true"
   kubeScheduler:
     featureGates:
-      EphemeralContainers: "true" 
+      EphemeralContainers: "true"
+  kubelet:
+    featureGates:
+      EphemeralContainers: "true"
 ```
       
 Then, create your cluster:
