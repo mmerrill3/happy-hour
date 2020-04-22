@@ -1,4 +1,4 @@
-Ephemeral Containers
+Graceful Daemonset Termination
 ===
 
 ## Installing
