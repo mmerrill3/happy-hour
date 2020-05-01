@@ -54,7 +54,7 @@ kubectl label node --all weave=true
 Let's update weave's daemonset to apply a node selector (this will cause a rolling deployment!!!):
 
 ```
-kubectl patch ds -n kube-system weave-net -p '{"spec":{"nodeSelector":{"weave":"true"}}}'
+kubectl patch ds -n kube-system weave-net -p '{"spec":{"template":{"spec":{"nodeSelector":{"weave":"true"}}}}}'
 ```
 
 Let's cordon and drain a node now:
