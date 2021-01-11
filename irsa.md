@@ -19,8 +19,8 @@ Examining IRSA (IAM Roles for Kubernetes Service Accounts) and re-examining Serv
 ## AWS tie-in
 * AWS has created a mutating web hook admission controller to automate IRSA.  See: https://github.com/aws/amazon-eks-pod-identity-webhook.
     * Listens for creation of new pods in your cluster.  It needs RBAC permissions for this.
-    * It will look for annotations on service accounts for the pods to determine which IAM role should be used in the JWT token.
-    * If there is an annotation, it will tell the API server to sign JWT tokens using the OIDC keys we are going to make below.  The JWT token will 
+    * It will look for annotations on service accounts for the pods to determine which namespace and service account should be used in the JWT token.
+    * If there is an annotation, it will tell the API server to sign JWT tokens using the OIDC keys we are going to make below.  The JWT token will have the namespace and security account of the workload running with this projected token.  The mutator will add environment variables as well to the running pods with this annotated service account.  The environment variables allow for the STS assume role flows used by the SDKs from AWS.
 * AWS has extended STS to allow for publicly available OIDC keys to be trusted, and tied to IAM roles.
 * The oidc provider must be trusted by STS on the AWS account.
 * OIDC providers can be reused across multiple AWS EKS clusters or accounts, but clusters cannot use more than one OIDC provider.
