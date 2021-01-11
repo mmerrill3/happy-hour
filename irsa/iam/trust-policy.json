@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::565009088587:oidc-provider/s3.amazonaws.com/auth.k8s.mmerrilldev.net"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "s3.amazonaws.com/auth.k8s.mmerrilldev.net:sub": "system:serviceaccount:security:test"
+        }
+      }
+    }
+  ]
+}
