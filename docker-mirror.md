@@ -265,6 +265,10 @@ ingressDocker:
     secretName: docker-mirror-cert-tls
   rules:
 ```
+
+ * Setup the docker proxy, and docker group in the nexus repo
+ * Add the docker bearer token in the security realm
+ * Allow anonymous access, for this demo only.
  
 ## Here is our docker daemon with the registry running
 ```
